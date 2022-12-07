@@ -1,0 +1,24 @@
+<suite name="MyTestSuite2">
+	<test name="MyTest2">
+		<parameter name="browser" value="chrome"></parameter>
+		<groups>
+			<run>
+				<!--include name="High"></include>
+				<include name="Medium"></include!-->
+
+
+				<!-- OR
+				2 types of GROUPING
+				Either one of it can only be used -->
+
+
+				<exclude name="Medium"></exclude>
+
+
+			</run>
+		</groups>
+		<classes>
+			<class name="testCases.LoginPageTestCases"></class>
+		</classes>
+	</test>
+</suite>
