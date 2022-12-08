@@ -41,6 +41,9 @@ public class HomePage {
 	@FindBy (xpath = "//p[text()='Manage Slider']")
 	WebElement manageSlider;
 
+	@FindBy (xpath = "//p[text()='Manage Payment Methods']")
+	WebElement ManagePaymentPage;
+	
 	public void clickOnManageOrdersTab() {
 
 		gu.clickOnElement(manageOrders);
@@ -75,5 +78,10 @@ public class HomePage {
 	public void clickOnManageSliderPage() {
 		
 		gu.clickOnElement(manageSlider);
+	}
+	
+	public void clickOnManagePaymentMethods() {
+		
+		gu.clickOnElement(ManagePaymentPage);
 	}
 }

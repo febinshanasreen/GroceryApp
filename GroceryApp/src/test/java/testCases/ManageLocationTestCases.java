@@ -39,13 +39,13 @@ public class ManageLocationTestCases extends BaseClass {
 		
 		String actual=mLP.getElementBgColor();
 		
-		String expected = "rgba(255, 193, 7, 1)";
+		String expected =gu.checkForequalance(actual, "rgba(255, 193, 7, 1)", "rgba(40, 167, 69, 1)");
 		
 		Assert.assertEquals(actual, expected, Constant.errorMsgBGColorMismatch);
 
 	}
 	
-	@Test// (enabled=false)
+	@Test (enabled=false)
 	public void verifyAClcikOnStatusWillChangeToActiveOrInactive() throws IOException, InterruptedException {
 		
 		lp = new LoginPage(driver);
@@ -58,9 +58,12 @@ public class ManageLocationTestCases extends BaseClass {
 
 		hP.clickOnManageLocationPage();
 
-		
+		mLP.clickOnStatus();
 		String actual=mLP.getElementText();
-		String expected="Inactive";
+		System.out.println(actual);
+		String expected= gu.checkForequalance(actual, "Active", "Inactive");
+		System.out.println(expected);
+		//String expected="Inactive";
 		Assert.assertEquals(actual, expected, Constant.mismatchInExpectedValue);
 	}
 }

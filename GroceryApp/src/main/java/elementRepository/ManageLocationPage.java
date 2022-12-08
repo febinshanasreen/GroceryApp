@@ -42,7 +42,7 @@ public class ManageLocationPage {
 		List<WebElement> columnlist = FirstColumn;
 		WebElement statusButton;
 
-		gu.selectValueFromScroll(0, 500, driver);
+		gu.scrollJavaScriptExecutor(0, 500, driver);
 		gu.waitForMinimumTime();
 		String locator =gu.ReturnLocatorFromDynSearch(columnlist,"belfast","//table[@class='table table-bordered table-hover table-sm']//tbody//tr[","]//td[5]//a//span");
 		statusButton = driver.findElement(By.xpath(locator));

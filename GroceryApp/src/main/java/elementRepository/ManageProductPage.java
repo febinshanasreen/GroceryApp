@@ -41,7 +41,7 @@ public class ManageProductPage {
 
 	public void userTriesToAddAFileWithoutMandatoryFields() throws InterruptedException, AWTException {
 
-		gu.selectValueFromScroll(0, 2000, driver);;
+		gu.scrollJavaScriptExecutor(0, 2000, driver);;
 		gu.waitForMinimumTime();
 		wu.explicitWaitUtilityForElementToBeClickable(driver, 5, chooseFile);
 		gu.fileUpload(chooseFile, System.getProperty("user.dir") + "\\src\\main\\resources\\UploadFiles\\Salad.jpg",

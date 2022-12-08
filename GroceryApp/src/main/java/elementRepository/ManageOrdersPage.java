@@ -103,7 +103,7 @@ public class ManageOrdersPage {
 		List<WebElement> columnlist = tableFirstRow;
 		WebElement deleteButton;
 		
-		gu.selectValueFromScroll(0, 500, driver);
+		gu.scrollJavaScriptExecutor(0, 500, driver);
 		gu.waitForMinimumTime();
 		String locator= gu.selectValueFromDynamicTable(columnlist, "388", "//table[@class='table table-bordered table-hover table-sm']//tbody//tr[\"+ (i+1) +\"]//td[7]//child::a[2]//i");
 		deleteButton = driver.findElement(By.xpath(locator));
@@ -125,7 +125,7 @@ public class ManageOrdersPage {
 		List<WebElement> columnlist = tableFirstRow;
 		WebElement deleteButton;
 		
-		gu.selectValueFromScroll(0, 500, driver);
+		gu.scrollJavaScriptExecutor(0, 500, driver);
 		gu.waitForMinimumTime();
 		String locator= gu.ReturnLocatorFromDynSearch(columnlist,"380","//table[@class='table table-bordered table-hover table-sm']//tbody//tr[","]//td[7]//child::a[2]//i");
 		deleteButton = driver.findElement(By.xpath(locator));
@@ -143,7 +143,7 @@ public class ManageOrdersPage {
 		List<WebElement> columnlist = tableFirstRow;
 		WebElement deleteButton;
 		
-		gu.selectValueFromScroll(0, 500, driver);
+		gu.scrollJavaScriptExecutor(0, 500, driver);
 		gu.waitForMinimumTime();
 		int rowNumber=gu.selectValueFromDynamicTableDupe2(columnlist, "380");
 		String locator= "//table[@class='table table-bordered table-hover table-sm']//tbody//tr["+(rowNumber+1)+"]//td[7]//child::a[2]//i";

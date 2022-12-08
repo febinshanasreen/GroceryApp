@@ -1,5 +1,6 @@
 package elementRepository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.checkerframework.dataflow.qual.TerminatesExecution;
@@ -33,15 +34,13 @@ public class ManageUsersPage {
 	@FindBy (xpath = "//table[@class='table table-bordered table-hover table-sm']//tbody//tr[14]//span")
 	WebElement paswordDisplayed;
 	
-	@FindBy (xpath = "//div[@class='col-xs-12 col-sm-12']//child::span")
-	List<WebElement> passwordList;
-	
+
 	public boolean clickOnShowPasswordSymbol() throws InterruptedException {
 		
 		List<WebElement> columnlist = FirstColumn;
 		WebElement showPaswdButton;
 		
-		gu.selectValueFromScroll(0, 500, driver);
+		gu.scrollJavaScriptExecutor(0, 500, driver);
 		gu.waitForMinimumTime();
 		String locator= gu.ReturnLocatorFromDynSearch(columnlist, "Sruthi Harikrishnan", "//table[@class='table table-bordered table-hover table-sm']//tbody//tr[", "]//td[3]//i");
 		showPaswdButton = driver.findElement(By.xpath(locator));
@@ -53,12 +52,30 @@ public class ManageUsersPage {
 	}
 	
 
-	public void checkForRepetivePasswords() {
+	public WebElement lockAUser() {
 		
-		List<WebElement> listOfPasswords= passwordList;
-		
-		
+		List<WebElement> columnlist = FirstColumn;
+		WebElement lockUserBtn;
+		String locator= gu.ReturnLocatorFromDynSearch(columnlist, "Sruthi Harikrishnan", "//table[@class='table table-bordered table-hover table-sm']//tbody//tr[", "]//td[6]//a");
+		lockUserBtn = driver.findElement(By.xpath(locator));
+		return lockUserBtn;
 	}
 	
+	public void clickOnLock() throws InterruptedException {
+		
+		WebElement lockUserBtn=lockAUser();
+//		System.out.println(lockUserBtn);
+		gu.scrollJavaScriptExecutor(0, 500, driver);
+		gu.waitForMinimumTime();
+		gu.clickJavaScriptExecutor(lockUserBtn, driver);
+		Thread.sleep(3000);
+	}
 	
+	public String bgColorOFLock() throws InterruptedException {
+		gu.waitForMinimumTime();
+		WebElement lockUserBtn=lockAUser();
+		return gu.getCSSValue(lockUserBtn, "background-color");
+	}
+	
+		
 }

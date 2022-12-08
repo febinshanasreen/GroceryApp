@@ -34,8 +34,10 @@ public class ManageSliderPage {
 	@FindBy (xpath = "//button[text()='Save']")
 	WebElement saveBtn;
 	
+	@FindBy (xpath = "//table[@class='table table-bordered table-hover table-sm']//tbody//tr[1]//td[1]//img")
+	WebElement image;
 	
-	public void uploadManageSliderImage() throws AWTException, InterruptedException {
+	public boolean uploadManageSliderImage() throws AWTException, InterruptedException {
 		
 		gu.clickOnElement(newBtn);
 		
@@ -46,5 +48,7 @@ public class ManageSliderPage {
 		gu.inputValueToATextField(linkInput, "www.pexels.com" );
 		
 		gu.clickJavaScriptExecutor(saveBtn, driver);
+		
+		return gu.elementDisplayedOrNot(image);
 	}
 }

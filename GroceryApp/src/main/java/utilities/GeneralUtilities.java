@@ -15,6 +15,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
+import io.opentelemetry.exporter.logging.SystemOutLogExporter;
+
 public class GeneralUtilities {
 
 //Login
@@ -157,7 +159,7 @@ public class GeneralUtilities {
 
 //Utitly for JS Scroll
 
-	public void selectValueFromScroll(int horizontal, int vertical, WebDriver driver) {
+	public void scrollJavaScriptExecutor(int horizontal, int vertical, WebDriver driver) {
 
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js = (JavascriptExecutor) driver;
@@ -234,6 +236,15 @@ public class GeneralUtilities {
 	
 	}
 	
+//Size of a list
+	
+	public Integer sizeOfAList(List<WebElement> listname) {
+		
+		int count= listname.size();
+		return count;
+	}
+	
+	
 	
 //Dynamic Table values
 
@@ -273,6 +284,21 @@ public class GeneralUtilities {
 			}
 		}
 		return elementLocator;
+	}
+
+//Matching string condition
+	
+	public String checkForequalance(String value, String value1, String value2) {
+		String expected=null;
+		if(value.equals(value1)) {
+			 expected=value1;
+		}
+		
+		else if(value.equals(value2)) {
+			expected=value2; 
+		}
+		
+		return expected;
 	}
 	
 
@@ -343,6 +369,17 @@ public class GeneralUtilities {
 	return true;
 	}
 	
+//TypeCasting String to Numeric
+	
+	public int returnNumericFromString(WebElement element) {
+	
+	String s= element.getText();
+
+	int number = Integer.parseInt(s);
+	
+	return number;
+	
+	}
 }	
 
 

@@ -1,6 +1,7 @@
 package testCases;
 
 import java.io.IOException;
+import java.util.List;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -21,7 +22,7 @@ public class ManageUsersPageTestCases extends BaseClass {
 	HomePage hP;
 	ManageUsersPage mUP;
 
-	@Test
+	@Test (enabled= false)
 	public void verifyPasswordOfAUserIsVisibleWhenClicked() throws InterruptedException, IOException {
 
 		lp = new LoginPage(driver);
@@ -37,8 +38,8 @@ public class ManageUsersPageTestCases extends BaseClass {
 	
 	}
 	
-	@Test  (enabled=false)
-	public void verifyNoPaswordIsRepeated() throws IOException {
+	@Test  //(enabled=false)
+	public void VerifyThatTheClickOnLockTurnsInToRedOROrange() throws IOException, InterruptedException {
 		
 		
 		lp = new LoginPage(driver);
@@ -48,7 +49,12 @@ public class ManageUsersPageTestCases extends BaseClass {
 		lp.enterLoginCredential(ExcelRead.readStringData(0, 0), ExcelRead.readStringData(0, 1));
 		lp.clickOnSignInButton();
 		hP.clickOnManageUsersPage();
-		mUP.checkForRepetivePasswords();
+		mUP.clickOnLock();
+	
+		String actual= mUP.bgColorOFLock();
+		String expected= gu.checkForequalance(actual, " rgba(40, 167, 69, 1)", "rgba(255, 193, 7, 1)");
+		Assert.assertEquals(actual, expected, Constant.errorMsgBGColorMismatch);
+	
 	}
 	
 }
